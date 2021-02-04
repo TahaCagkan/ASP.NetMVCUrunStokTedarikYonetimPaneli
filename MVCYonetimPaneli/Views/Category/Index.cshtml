@@ -1,0 +1,73 @@
+﻿@using MVCYonetimPaneli.Models
+@model List<Kategoriler>
+
+@{
+    ViewBag.Title = "Kategoriler";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Kategoriler
+                </div>
+                <div class="block-controls">
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                    <a href="/Category/CategoryAdd" class="btn btn-success rounded">Yeni Kategori</a>
+                </div>
+                    <div class="block-content-outer">
+                        <div class="block-content-inner">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Kategori Adı</th>
+                                        <th>Tanımı</th>
+                                        <th>Güncelle</th>
+                                        <th>Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Kategoriler ctg in Model)
+                                    {
+                                        <tr>
+                                            <td>@ctg.KategoriAdi</td>
+                                            <td>@ctg.Tanimi</td>
+                                            <td><a href="/Category/CategoryUpdate/@ctg.KategoriID" class="btn btn-primary">Güncelle</a></td>
+                                            <td><a href="#" class="btn btn-danger ctgDel" data-ctgid="@ctg.KategoriID">Sil</a></td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script>
+        $(".ctgDel").click(function () {
+            var result = confirm("Kategori Silinsin mi?");
+            if (result) {
+                var ctgId = $(this).data("ctgid");
+                $.ajax({
+                    type: "POST",
+                    url: "/Category/CategoryRemove/" + ctgId,
+                    success: function () {
+                        alert("Kategori Kayıt Silindi");
+                        window.location.replace("/Category/Index");
+                    },
+                    error: function () {
+                        alert("Kategori Kayıt silme sırasında hata oluştu!");
+                    }
+                });
+            } else {
+
+            }
+        });
+    </script>
+}

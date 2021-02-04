@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="15654f44c9a44026807caffc73d15487" Name="Diagram1">
+        <EntityTypeShape EntityType="KuzeyYeliModel.Bolge" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.Bolgeler" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.Kategoriler" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.MusteriDemographics" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.Musteriler" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.Nakliyeciler" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.Personeller" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.SatisDetay" Width="1.5" PointX="9.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.Satislar" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.Tedarikciler" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.Urunler" Width="1.5" PointX="7.5" PointY="16.375" IsExpanded="true" />
+        <AssociationConnector Association="KuzeyYeliModel.FK_Bolgeler_Bolge" ManuallyRouted="false" />
+        <AssociationConnector Association="KuzeyYeliModel.FK_Urunler_Kategoriler" ManuallyRouted="false" />
+        <AssociationConnector Association="KuzeyYeliModel.FK_Satislar_Musteriler" ManuallyRouted="false" />
+        <AssociationConnector Association="KuzeyYeliModel.FK_Satislar_Nakliyeciler" ManuallyRouted="false" />
+        <AssociationConnector Association="KuzeyYeliModel.FK_Personeller_Personeller" ManuallyRouted="false" />
+        <AssociationConnector Association="KuzeyYeliModel.FK_Satislar_Personeller" ManuallyRouted="false" />
+        <AssociationConnector Association="KuzeyYeliModel.FK_Order_Details_Satislar" ManuallyRouted="false" />
+        <AssociationConnector Association="KuzeyYeliModel.FK_Order_Details_Urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="KuzeyYeliModel.FK_Urunler_Tedarikciler" ManuallyRouted="false" />
+        <AssociationConnector Association="KuzeyYeliModel.MusteriMusteriDemo" ManuallyRouted="false" />
+        <AssociationConnector Association="KuzeyYeliModel.PersonelBolgeler" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.aspnet_Applications" Width="1.5" PointX="10.75" PointY="12.875" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.aspnet_Membership" Width="1.5" PointX="18" PointY="11.5" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.aspnet_Paths" Width="1.5" PointX="13" PointY="11.375" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="15.25" PointY="14.875" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="15.25" PointY="11.375" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.aspnet_Profile" Width="1.5" PointX="17.5" PointY="18.875" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.aspnet_Roles" Width="1.5" PointX="13" PointY="20.75" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.aspnet_Users" Width="1.5" PointX="15.25" PointY="18.375" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.aspnet_WebEvent_Events" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.vw_aspnet_Applications" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.vw_aspnet_Profiles" Width="1.5" PointX="9.75" PointY="6.75" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.vw_aspnet_Roles" Width="1.5" PointX="9.75" PointY="9.75" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.vw_aspnet_Users" Width="1.5" PointX="2.75" PointY="11.75" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.vw_aspnet_UsersInRoles" Width="1.5" PointX="11.75" PointY="5.75" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="11.75" PointY="8.75" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KuzeyYeliModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="7.75" PointY="12.75" />
+        <AssociationConnector Association="KuzeyYeliModel.FK__aspnet_Me__Appli__60A75C0F" />
+        <AssociationConnector Association="KuzeyYeliModel.FK__aspnet_Pa__Appli__123EB7A3" />
+        <AssociationConnector Association="KuzeyYeliModel.FK__aspnet_Ro__Appli__7F2BE32F" />
+        <AssociationConnector Association="KuzeyYeliModel.FK__aspnet_Us__Appli__5070F446" />
+        <AssociationConnector Association="KuzeyYeliModel.FK__aspnet_Me__UserI__619B8048" />
+        <AssociationConnector Association="KuzeyYeliModel.FK__aspnet_Pe__PathI__17F790F9" />
+        <AssociationConnector Association="KuzeyYeliModel.FK__aspnet_Pe__PathI__1BC821DD" />
+        <AssociationConnector Association="KuzeyYeliModel.FK__aspnet_Pe__UserI__1CBC4616" />
+        <AssociationConnector Association="KuzeyYeliModel.FK__aspnet_Pr__UserI__75A278F5" />
+        <AssociationConnector Association="KuzeyYeliModel.aspnet_UsersInRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,132 @@
+﻿@using MVCYonetimPaneli.Models
+@model  List<Urunler>
+@{
+    ViewBag.Title = "Ürünler";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Ürünler
+                </div>
+                <div class="block-controls">
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                    <a href="/Product/ProductAdd" class="btn btn-success rounded">Yeni Ürün</a>
+
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Ürün Adı</th>
+                                <th>Tedarikçi</th>
+                                <th>Kategori</th>
+                                <th>Birimdeki Miktar</th>
+                                <th>Fiyat</th>
+                                <th>Stok</th>
+                                <th>Yeni Satış</th>
+                                <th>En Az Yeniden Satış Miktarı</th>
+                                <th>Sonlandı</th>
+                                <th>Sepete Ekle</th>
+                                <th>Detay</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Urunler prdct in Model)
+                            {
+                                <tr>
+                                    <td>@prdct.UrunAdi</td>
+                                    @if (prdct.Tedarikciler == null)
+                                    {
+                                        <td></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="label label-primary">@prdct.Tedarikciler.SirketAdi</span></td>
+                                    }
+                                    @if (prdct.Kategoriler == null)
+                                    {
+                                        <td></td>
+                                    }
+                                    else
+                                    {
+
+                                        <td><span class="label laber-info">@prdct.Kategoriler.KategoriAdi</span></td>
+
+                                    }
+                                    <td>@prdct.BirimdekiMiktar</td>
+                                    <td>@prdct.Fiyat</td>
+                                    <td>@prdct.Stok</td>
+                                    <td>@prdct.YeniSatis</td>
+                                    @if (prdct.Sonlandi)
+                                    {
+                                        <td><span class="label label-danger">Stokta Yok</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="label label-success">Stokta Var</span></td>
+                                    }
+                                    <td><a class="btn btn-default boxSend" data-id="@prdct.UrunID" href="#">Sepete Ekle</a></td>
+                                    <td><a class="btn btn-primary" href="/Product/ProductDetail?id=@prdct.UrunID&adi=@prdct.UrunAdi">Detay</a></td>
+                                    @*<td>
+                                        <span class="label label-success">Complete</span>
+                                    </td>*@
+                                    <td><a href="#" class="btn btn-danger btn-sm prdDel" data-prdid="@prdct.UrunID">Sil</a></td>
+                                </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script>
+        $(".prdDel").click(function () {
+            var result = confirm("Ürün Kaydı Silinsin mi ?");
+            if (result) {
+                var prdId = $(this).data("prdid");
+                $.ajax({
+                    type: "POST",
+                    url: "/Product/ProductRemove/" + prdId,
+                    success: function () {
+                        alert("Ürün Kaydı Silindi");
+                        window.location.replace("/Product/Index");
+                    },
+                    error: function () {
+                        alert("Ürün Silme işleminde hata oluştu");
+                    }
+                });
+            }
+            else {
+
+            }
+        });
+
+        $(".boxSend").click(function () {
+            var id = $(this).data("id");
+            $.ajax({
+                type: "POST",
+                url: "/Product/BoxSend" + id,
+                success: function () {
+                    alert("Ürün Sepete Atıldı.");
+                },
+                error: function () {
+                    alert("Ürün Sepete atılırken hata oluştu");
+                }
+            });
+        });
+      
+    </script>
+}

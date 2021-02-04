@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Rol Ata";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    <h2>Rol Atama Syafası</h2>
+                </div>
+                <div class="block-controls">
+                    <a href="/Users/Index"><span aria-hidden="true" class="icon icon-cross icon-size-medium block-control-remove"></span></a>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Users/RoleSend" method="post" role="form">
+                        <div class="form-group">
+                            <label>Kullanıcı Adı : </label>
+                            <input type="text" class="form-control" name="KullaniciAdi" value="@Model" disabled="disabled">
+                        </div>
+                        <div class="form-group">
+                            <label>Rol : </label>
+                            <select name="Role" class="form-control">
+                                @foreach (string rol in ViewBag.Roller)
+                                {
+                                    <option value="@rol">@rol</option>
+                                }
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

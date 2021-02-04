@@ -1,0 +1,130 @@
+﻿@using MVCYonetimPaneli.Models;
+@model List<Tedarikciler>
+@{
+    ViewBag.Title = "Tedarikçiler";
+}
+@section head{
+    <style>
+        #small-modal {
+            z-index: 9999999;
+            position:absolute;
+        }
+        .hata{
+            color:red;
+        }
+    </style>
+}
+
+
+@section body{
+    <div class="modal fade small-modal" id="small-modal" tabindex="-1" role="dialog" aria-labelledby="small-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" data-border-top="multi">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="small-modal-label">Tedarikçi Sil</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="mesaj"></p>
+                    <p class="hata"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-danger supDel">Evet</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block" style="overflow-x:scroll">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Tedarikçiler
+                </div>
+                <div class="block-controls">
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                    <a href="/Supplier/SupplierAdd" class="btn btn-success rounded">Yeni Tedarikçi</a>
+                </div>
+                <div class="block-content-outer">
+                    <div class="block-content-inner">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Şirket Adı</th>
+                                    <th>Müşteri Adı</th>
+                                    <th>Adres</th>
+                                    <th>Şehir</th>
+                                    <th>Bölge</th>
+                                    <th>Posta Kodu</th>
+                                    <th>Ülke</th>
+                                    <th>Telefon</th>
+                                    <th>Faks</th>
+                                    <th>Güncelle</th>
+                                    <th>Sil</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Tedarikciler splr in Model)
+                                {
+                                    <tr>
+                                        <td>@splr.SirketAdi</td>
+                                        <td>@splr.MusteriAdi</td>
+                                        <td>@splr.MusteriUnvani</td>
+                                        <td>@splr.Adres</td>
+                                        <td>@splr.Sehir</td>
+                                        <td>@splr.Bolge</td>
+                                        <td>@splr.PostaKodu</td>
+                                        <td>@splr.Ulke</td>
+                                        <td>@splr.Telefon</td>
+                                        <td>@splr.Faks</td>
+                                        <td><a href="/Supplier/SupplierAdd/@splr.TedarikciID" class="btn btn-primary">Güncelle</a></td>
+                                        <td>
+                                            <button class="btn btn-danger modalOp" data-toggle="modal" data-target="#small-modal" data-companyname="@splr.SirketAdi" data-id="@splr.TedarikciID">Sil</button>
+                                        </td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script>
+        $(".modalOp").click(function () {
+            var cmpName = $(this).data("companyname");
+            $(".modal-body>p.mesaj").html(cmpName + " tedarikçisi silinsin mi?");
+            var id = $(this).data("id");
+            $(".supDel").data("id", id);
+        });
+
+        $(".supDel").click(function () {
+            var id = $(this).data("id");
+            $.ajax({
+                type: "POST",
+                url: "/Supplier/SupplierRemove/" + id,
+                success: function (durum) {
+                    if (durum == "başarılı") {
+                        window.location.replace("/Supplier/Index");
+                    }
+                    else {
+                        $(".modal-body>p.hata").html("Bağlantılı Tedarikçi silmezsiniz! Lütfen Tedarikçi bağlantılarını yeniden kontrol ediniz.");
+                    }
+                }
+                
+            });
+
+        });
+    </script>
+}

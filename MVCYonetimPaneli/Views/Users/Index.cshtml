@@ -1,0 +1,72 @@
+﻿@using System.Web.Security
+@model MembershipUserCollection
+
+@{
+    ViewBag.Title = "Kullanıcılar";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Kullanıcılar
+                </div>
+                <div class="block-controls">
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                    <a href="/Users/UsersAdd" class="btn btn-success rounded">Yeni Kullanıcı</a>
+                </div>
+                <div class="block-content-outer">
+                    <div class="block-content-inner">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Kullanıcı Adı</th>
+                                    <th>Email</th>
+                                    <th>Kayıt Giriş Tarihi</th>
+                                    <th>Son Giriş Tarihi</th>
+                                    <th>Rolleri</th>
+                                    <th>Rol Ata</th>
+                                    <th>Sil</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (MembershipUser mu in Model)
+                                {
+                                    <tr>
+                                        <td>@mu.UserName</td>
+                                        <td>@mu.Email</td>
+                                        <td>@mu.CreationDate</td>
+                                        <td>@mu.LastLoginDate</td>
+                                        <td><a class="btn btn-primary rollerid" data-uyedi="@mu.UserName">Rolleri</a></td>
+                                        <td><a class="btn btn-primary" href="/Role/RoleSend/@mu.UserName">Rol Ekle</a></td>
+                                        <td><a href="#" class="btn btn-danger ctgDel" data-usname="@mu.UserName">Sil</a></td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script>
+        $(".rollerid").click(function () {
+            var ka = $(this).data("uyeadi");
+            $.ajax({
+                type: "POST",
+                url: "/Users/UsersRoles",
+                data: { userName:ka},
+                success: function (veri) {
+                    alert(veri);
+                }
+            });
+        });
+    </script>
+}

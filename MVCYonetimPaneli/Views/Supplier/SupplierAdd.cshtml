@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Tedarikçi Ekleme";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    <h2>Tedarikçi Ekleme Syafası</h2>
+                </div>
+                <div class="block-controls">
+                    <a href="/Supplier/Index"><span aria-hidden="true" class="icon icon-cross icon-size-medium block-control-remove"></span></a>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Supplier/SupplierAdd" method="post" role="form">
+                        <div class="form-group">
+                            <label>Tedarikçi Firma Adını : </label>
+                            <input type="text" class="form-control" placeholder="Tedarikçi Firma Adı Giriniz" name="SirketAdi">
+                        </div>
+                        <div class="form-group">
+                            <label>Müşteri Adı Soyadı : </label>
+                            <input type="text" class="form-control" placeholder="Müşteri Adı Soyad Giriniz" name="MusteriAdi">
+                        </div>
+                        <div class="form-group">
+                            <label>Müşteri Ünvanı : </label>
+                            <input type="text" class="form-control" placeholder="Müşteri Ünvanı Giriniz" name="MusteriUnvani">
+                        </div>
+                        <div class="form-group">
+                            <label>Adres Bilgileri : </label>
+                            <input type="text" class="form-control" placeholder="Adres Bilgileri Giriniz" name="Adres">
+                        </div>
+                        <div class="form-group">
+                            <label>Şehir Bilgileri : </label>
+                            <input type="text" class="form-control" placeholder="Şehir Bilgileri Giriniz" name="Sehir">
+                        </div>
+                        <div class="form-group">
+                            <label>Bölge Bilgileri : </label>
+                            <input type="text" class="form-control" placeholder="Bölge Bilgileri Giriniz" name="Bolge">
+                        </div>
+                        <div class="form-group">
+                            <label>Posta Kodu  Bilgileri : </label>
+                            <input type="text" class="form-control" placeholder="Posta Kodu Bilgileri Giriniz" name="PostaKodu">
+                        </div>
+                        <div class="form-group">
+                            <label>Ülke Bilgileri : </label>
+                            <input type="text" class="form-control" placeholder="Ülke Bilgileri Giriniz" name="Ulke">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon  Bilgileri : </label>
+                            <input type="text" class="form-control" placeholder="Telefon Bilgileri Giriniz" name="Telefon">
+                        </div>
+                        <div class="form-group">
+                            <label>Faks Bilgileri : </label>
+                            <input type="text" class="form-control" placeholder="Faks Bilgileri Giriniz" name="Faks">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

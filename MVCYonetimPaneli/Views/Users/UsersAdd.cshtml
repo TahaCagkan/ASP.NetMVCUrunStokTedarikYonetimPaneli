@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Kullanıcı Ekle";
+}
+
+@section head{
+    <style>
+        #hata{
+            color:red;
+            font-size:16px;
+        }
+    </style>
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    <h2>Kullanıcı Ekleme Syafası</h2>
+                </div>
+                <div class="block-controls">
+                    <a href="/Users/Index"><span aria-hidden="true" class="icon icon-cross icon-size-medium block-control-remove"></span></a>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Users/UsersAdd" method="post" role="form">
+                        <div class="form-group">
+                            <label>Kullanıcı Adı : </label>
+                            <input type="text" class="form-control" placeholder="Kullanıcı Adını Giriniz" name="KullaniciAdigös">
+                        </div>
+                        <div class="form-group">
+                            <label>Parola : </label>
+                            <input type="password" class="form-control" placeholder="Parola Giriniz" name="Parola" min="3">
+                        </div>
+                        <div class="form-group">
+                            <label>Email : </label>
+                            <input type="text" class="form-control" placeholder="Email Giriniz" name="Email">
+                        </div>
+                        <div class="form-group">
+                            <label>Gizli Soru : </label>
+                            <input type="text" class="form-control" placeholder="Gizli Soru Giriniz" name="GizliSoru">
+                        </div>
+                        <div class="form-group">
+                            <label>Gizli Cevap : </label>
+                            <input type="text" class="form-control" placeholder="Gizli Cevap Giriniz" name="GizliCevap">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+                    <span id="hata">@ViewBag.Mesaj</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

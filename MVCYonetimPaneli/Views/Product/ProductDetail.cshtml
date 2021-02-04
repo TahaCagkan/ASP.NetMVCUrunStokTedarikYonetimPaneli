@@ -1,0 +1,85 @@
+﻿@using MVCYonetimPaneli.Models;
+@model Urunler
+@{
+    ViewBag.Title = "Ürün Detay";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Ürünler
+                </div>
+                <div class="block-controls">
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                    <a href="/Product/ProductAdd" class="btn btn-success rounded">Yeni Ürün</a>
+
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Ürün Adı</th>
+                                <th>Tedarikçi</th>
+                                <th>Kategori</th>
+                                <th>Birimdeki Miktar</th>
+                                <th>Fiyat</th>
+                                <th>Stok</th>
+                                <th>Yeni Satış</th>
+                                <th>En Az Yeniden Satış Miktarı</th>
+                                <th>Sonlandı</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                                <tr>
+                                    <td>@Model.UrunAdi</td>
+                                    @if (Model.Tedarikciler == null)
+                                    {
+                                        <td></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="label label-primary">@Model.Tedarikciler.SirketAdi</span></td>
+                                    }
+                                    @if (Model.Kategoriler == null)
+                                    {
+                                        <td></td>
+                                    }
+                                    else
+                                    {
+
+                                        <td><span class="label laber-info">@Model.Kategoriler.KategoriAdi</span></td>
+
+                                    }
+                                    <td>@Model.BirimdekiMiktar</td>
+                                    <td>@Model.Fiyat</td>
+                                    <td>@Model.Stok</td>
+                                    <td>@Model.YeniSatis</td>
+                                    @if (Model.Sonlandi)
+                                    {
+                                        <td><span class="label label-danger">Stokta Yok</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="label label-success">Stokta Var</span></td>
+                                    }                          
+                                    @*<td>
+                                            <span class="label label-success">Complete</span>
+                                        </td>*@
+                                </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

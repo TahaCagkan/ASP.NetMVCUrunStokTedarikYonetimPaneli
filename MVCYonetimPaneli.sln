@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCYonetimPaneli", "MVCYonetimPaneli\MVCYonetimPaneli.csproj", "{1ED99012-7459-4606-A7F4-955D08C371EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1ED99012-7459-4606-A7F4-955D08C371EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ED99012-7459-4606-A7F4-955D08C371EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ED99012-7459-4606-A7F4-955D08C371EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ED99012-7459-4606-A7F4-955D08C371EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78C57645-B83D-42F6-8667-4C13FFA6E0CF}
+	EndGlobalSection
+EndGlobal
